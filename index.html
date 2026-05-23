@@ -3,305 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Almeplan | Planejamento e Gerenciamento de Projetos</title>
-
+  <title>Almeplan</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-
-    body{
-      background:#f4f7fa;
-      color:#1f2937;
-      line-height:1.6;
-    }
-
-    header{
-      background:linear-gradient(135deg,#0B2A45,#0B7B72);
-      color:white;
-      padding:80px 20px;
-      text-align:center;
-    }
-
-    header h1{
-      font-size:52px;
-      margin-bottom:20px;
-    }
-
-    header p{
-      max-width:700px;
-      margin:auto;
-      font-size:20px;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:30px;
-      background:white;
-      color:#0B2A45;
-      padding:15px 28px;
-      border-radius:40px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    section{
-      padding:70px 20px;
-    }
-
-    .container{
-      max-width:1200px;
-      margin:auto;
-    }
-
-    .title{
-      text-align:center;
-      margin-bottom:50px;
-    }
-
-    .title h2{
-      font-size:38px;
-      color:#0B2A45;
-      margin-bottom:10px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
-
-    .card-content{
-      padding:25px;
-    }
-
-    .card h3{
-      color:#0B2A45;
-      margin-bottom:10px;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
-
-    .step{
-      background:white;
-      padding:25px;
-      border-radius:20px;
-      box-shadow:0 5px 18px rgba(0,0,0,0.06);
-    }
-
-    .number{
-      width:45px;
-      height:45px;
-      border-radius:50%;
-      background:#0B7B72;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:bold;
-      margin-bottom:15px;
-    }
-
-    .cta{
-      background:linear-gradient(135deg,#0B2A45,#0B7B72);
-      color:white;
-      border-radius:30px;
-      padding:60px 20px;
-      text-align:center;
-    }
-
-    footer{
-      background:#071D30;
-      color:white;
-      text-align:center;
-      padding:30px;
-      margin-top:50px;
-    }
-
-    @media(max-width:768px){
-      header h1{
-        font-size:38px;
-      }
-
-      .title h2{
-        font-size:30px;
-      }
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{background:#f4f7fa;color:#1f2937;line-height:1.6}
+    header{background:linear-gradient(135deg,#0B2A45,#0B7B72);color:white;padding:80px 20px;text-align:center}
+    header h1{font-size:54px;margin-bottom:15px}
+    header p{max-width:760px;margin:auto;font-size:20px}
+    .btn{display:inline-block;margin-top:28px;background:white;color:#0B2A45;padding:14px 28px;border-radius:40px;text-decoration:none;font-weight:bold}
+    section{padding:70px 20px}
+    .container{max-width:1180px;margin:auto}
+    .title{text-align:center;margin-bottom:45px}
+    .title h2{font-size:38px;color:#0B2A45}
+    .title p{font-size:19px;color:#4b5563;max-width:760px;margin:10px auto 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+    .card{background:white;border-radius:24px;overflow:hidden;box-shadow:0 10px 28px rgba(11,42,69,.10)}
+    .visual{height:190px;background:linear-gradient(135deg,#0B2A45,#0B7B72);position:relative;overflow:hidden}
+    .visual:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12);right:-70px;top:-70px}
+    .visual:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;border:18px solid rgba(255,255,255,.16);left:-35px;bottom:-35px}
+    .icon{position:absolute;left:26px;bottom:24px;width:70px;height:70px;border-radius:20px;background:white;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+    .mini-chart{position:absolute;right:26px;bottom:28px;display:flex;gap:8px;align-items:end}
+    .mini-chart span{width:14px;border-radius:8px 8px 0 0;background:white;opacity:.9}
+    .card-content{padding:26px}
+    .card h3{color:#0B2A45;font-size:24px;margin-bottom:12px}
+    .card p{font-size:17px;color:#374151}
+    .process{background:white}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+    .step{background:#f7fafb;padding:28px;border-radius:22px;border:1px solid #e6eef0}
+    .number{width:48px;height:48px;border-radius:50%;background:#0B7B72;color:white;display:flex;align-items:center;justify-content:center;font-weight:bold;margin-bottom:16px}
+    .step h3{color:#0B2A45;font-size:22px;margin-bottom:8px}
+    .step p{font-size:16px;color:#4b5563}
+    .dashboard{background:#0B2A45;color:white;border-radius:30px;padding:45px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .dashboard h2{font-size:36px;margin-bottom:14px}
+    .dashboard p{color:#d8eeee;font-size:18px}
+    .panel{background:white;border-radius:22px;padding:26px;color:#0B2A45}
+    .bar{margin:16px 0}
+    .bar small{display:flex;justify-content:space-between;margin-bottom:6px;font-weight:bold}
+    .bar-line{height:12px;background:#e5edf0;border-radius:20px;overflow:hidden}
+    .bar-line span{display:block;height:12px;background:linear-gradient(90deg,#0B7B72,#11A093)}
+    .cta{background:linear-gradient(135deg,#0B2A45,#0B7B72);color:white;border-radius:30px;padding:60px 20px;text-align:center}
+    .cta h2{font-size:38px;margin-bottom:15px}
+    .cta p{font-size:18px;max-width:720px;margin:0 auto 25px;color:#e6f4f3}
+    footer{background:#071D30;color:white;text-align:center;padding:30px;margin-top:50px}
+    @media(max-width:768px){header h1{font-size:40px}.title h2{font-size:30px}.dashboard{grid-template-columns:1fr;padding:30px}}
   </style>
 </head>
-
 <body>
 
 <header>
   <h1>Almeplan</h1>
-
-  <p>
-    Planejamento de obras, gerenciamento de projetos,
-    controle de custos e elaboração de orçamentos
-    para projetos industriais e corporativos.
-  </p>
-
+  <p>Planejamento de obras, gerenciamento de projetos, controle de custos e elaboração de orçamentos para projetos industriais e corporativos.</p>
   <a class="btn" href="#contato">Solicitar proposta</a>
 </header>
 
 <section>
   <div class="container">
-
     <div class="title">
       <h2>Principais Serviços</h2>
-      <p>
-        Soluções estratégicas para maior controle,
-        previsibilidade e resultado dos projetos.
-      </p>
+      <p>Soluções estratégicas para maior controle, previsibilidade e resultado dos projetos.</p>
     </div>
 
     <div class="cards">
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" />
-
-        <div class="card-content">
-          <h3>Planejamento de Obras</h3>
-
-          <p>
-            Cronogramas físicos e financeiros,
-            curva S, histogramas e planejamento executivo.
-          </p>
-        </div>
+        <div class="visual"><div class="icon">📅</div><div class="mini-chart"><span style="height:35px"></span><span style="height:60px"></span><span style="height:90px"></span></div></div>
+        <div class="card-content"><h3>Planejamento de Obras</h3><p>Cronogramas físicos e financeiros, curva S, histogramas e planejamento executivo.</p></div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" />
-
-        <div class="card-content">
-          <h3>Gerenciamento de Projetos</h3>
-
-          <p>
-            Controle de prazo, acompanhamento de execução
-            e relatórios gerenciais.
-          </p>
-        </div>
+        <div class="visual"><div class="icon">📊</div><div class="mini-chart"><span style="height:55px"></span><span style="height:75px"></span><span style="height:45px"></span></div></div>
+        <div class="card-content"><h3>Gerenciamento de Projetos</h3><p>Controle de prazo, acompanhamento de execução, status report e relatórios gerenciais.</p></div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" />
-
-        <div class="card-content">
-          <h3>Controle de Custos</h3>
-
-          <p>
-            Controle previsto x realizado,
-            indicadores e apoio à tomada de decisão.
-          </p>
-        </div>
+        <div class="visual"><div class="icon">💰</div><div class="mini-chart"><span style="height:40px"></span><span style="height:65px"></span><span style="height:82px"></span></div></div>
+        <div class="card-content"><h3>Controle de Custos</h3><p>Controle previsto x realizado, análise de desvios, indicadores e apoio à tomada de decisão.</p></div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07" />
-
-        <div class="card-content">
-          <h3>Orçamentos</h3>
-
-          <p>
-            Composição de custos, formação de preço,
-            BDI e propostas técnicas comerciais.
-          </p>
-        </div>
+        <div class="visual"><div class="icon">📋</div><div class="mini-chart"><span style="height:80px"></span><span style="height:55px"></span><span style="height:95px"></span></div></div>
+        <div class="card-content"><h3>Orçamentos</h3><p>Composição de custos, formação de preço, BDI e propostas técnicas comerciais.</p></div>
       </div>
+    </div>
+  </div>
+</section>
 
+<section class="process">
+  <div class="container">
+    <div class="title">
+      <h2>Como Trabalhamos</h2>
+      <p>Uma atuação organizada para transformar informações em decisões e resultados.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="number">1</div><h3>Diagnóstico</h3><p>Entendimento do escopo, premissas, documentos técnicos e necessidades do cliente.</p></div>
+      <div class="step"><div class="number">2</div><h3>Planejamento</h3><p>Estruturação de cronogramas, recursos, marcos, entregáveis e estratégia de controle.</p></div>
+      <div class="step"><div class="number">3</div><h3>Orçamento</h3><p>Composição dos custos, mão de obra, materiais, equipamentos, BDI, impostos e cenários.</p></div>
+      <div class="step"><div class="number">4</div><h3>Controle</h3><p>Acompanhamento de avanço, produtividade, desvios e relatórios gerenciais para decisão.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-
-    <div class="title">
-      <h2>Como Trabalhamos</h2>
-    </div>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="number">1</div>
-
-        <h3>Diagnóstico</h3>
-
-        <p>
-          Entendimento do escopo, premissas e necessidades do cliente.
-        </p>
+    <div class="dashboard">
+      <div>
+        <h2>Relatórios, cronogramas e indicadores</h2>
+        <p>Transformamos dados de obra em informação clara, visual e útil para acompanhar prazo, custo e desempenho do projeto.</p>
       </div>
 
-      <div class="step">
-        <div class="number">2</div>
-
-        <h3>Planejamento</h3>
-
-        <p>
-          Estruturação de cronogramas, recursos e entregáveis.
-        </p>
+      <div class="panel">
+        <div class="bar"><small><span>Prazo</span><span>92%</span></small><div class="bar-line"><span style="width:92%"></span></div></div>
+        <div class="bar"><small><span>Custo</span><span>87%</span></small><div class="bar-line"><span style="width:87%"></span></div></div>
+        <div class="bar"><small><span>Avanço físico</span><span>68%</span></small><div class="bar-line"><span style="width:68%"></span></div></div>
+        <div class="bar"><small><span>Relatórios gerenciais</span><span>95%</span></small><div class="bar-line"><span style="width:95%"></span></div></div>
       </div>
-
-      <div class="step">
-        <div class="number">3</div>
-
-        <h3>Execução</h3>
-
-        <p>
-          Acompanhamento físico e financeiro do projeto.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="number">4</div>
-
-        <h3>Controle</h3>
-
-        <p>
-          Relatórios gerenciais e monitoramento de indicadores.
-        </p>
-      </div>
-
     </div>
   </div>
 </section>
 
 <section id="contato">
   <div class="container">
-
     <div class="cta">
       <h2>Vamos construir resultados juntos?</h2>
-
-      <p>
-        Solicite uma proposta para planejamento,
-        gerenciamento de projetos ou controle de custos.
-      </p>
-
-      <a class="btn" href="mailto:contato@almeplan.com.br">
-        contato@almeplan.com.br
-      </a>
+      <p>Solicite uma proposta para planejamento, gerenciamento de projetos ou controle de custos.</p>
+      <a class="btn" href="mailto:contato@almeplan.com.br">contato@almeplan.com.br</a>
     </div>
-
   </div>
 </section>
 
